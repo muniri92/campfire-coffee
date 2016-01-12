@@ -1,11 +1,8 @@
-// Time Array
-var timeHr = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
-// Kiosk Array ( var kiosk = [[kiosk names], [min/hr], [max/hr], [cups/cust], [lbs/cust]] )
 
 // Loop for the Kiosks
 function campCoffee() {
   var kiosk = [['Pike Place Market', 'Capital Hill', 'Seattle Public Library', 'South Lake Union', 'Sea-Tac Airport', 'Website Sales'], [14, 32, 49, 35, 68, 3], [55, 48, 75, 88, 124, 6], [1.2, 3.2, 2.6, 1.3, 1.1, 0], [3.7, 0.4, 0.2, 3.7, 2.7, 6.7]];
-  for (var i = 0; i < kiosk[0][0].length; i++) {
+  for (var i = 0; i < kiosk[0][i].length; i++) {
     var h2El = document.createElement('h2');
     h2El.textContent = kiosk[0][i];
     document.body.appendChild(h2El);

@@ -9,3 +9,21 @@ for (var p = 0; p < openFor.length; p++){
   paraEl.textContent = 'OPEN: 6:00am - 9:00pm, 7 Days A Week';
   document.body.appendChild(paraEl);
 };
+
+
+// <table>
+//   <thead>
+//     <tr>
+//       <th></th>
+//       <th></th>
+//       <th></th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//     <tr>
+//       <td></td>
+//       <td></td>
+//       <td></td>
+//     </tr>
+//   </tbody>
+// </table>
