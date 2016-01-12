@@ -1,9 +1,8 @@
-// CAMPFIRE COFFEE
-
+// DATA PAGE
 // Array of Time
 var timeHr = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 
-var pikeEl = document.createElement('h1');
+var pikeEl = document.createElement('h2');
 pikeEl.textContent = 'Pike Place';
 document.body.appendChild(pikeEl);
 // Pike Place
@@ -38,7 +37,7 @@ for (var j = 0; j < timeHr.length; j++) {
 }
 
 
-var capEl = document.createElement('h1');
+var capEl = document.createElement('h2');
 capEl.textContent = 'Capital Hill';
 document.body.appendChild(capEl);
 // Capital Hill
@@ -67,7 +66,7 @@ for(var i = 0; i < timeHr.length; i++) {
   document.body.appendChild(dotEl);
 }
 
-var seaPublicEl = document.createElement('h1');
+var seaPublicEl = document.createElement('h2');
 seaPublicEl.textContent = 'Seattle Public Library';
 document.body.appendChild(seaPublicEl);
 // Seattle Public Library
@@ -96,7 +95,7 @@ for(var m = 0; m < timeHr.length; m++) {
   document.body.appendChild(dotEl);
 }
 
-var sLUEl = document.createElement('h1');
+var sLUEl = document.createElement('h2');
 sLUEl.textContent = 'South Lake Union';
 document.body.appendChild(sLUEl);
 // South Lake Union
@@ -125,7 +124,7 @@ for(var q = 0; q < timeHr.length; q++) {
   document.body.appendChild(dotEl);
 }
 
-var seaTacEl = document.createElement('h1');
+var seaTacEl = document.createElement('h2');
 seaTacEl.textContent = 'Sea-Tac Airport';
 document.body.appendChild(seaTacEl);
 // Sea-Tac Airport
@@ -154,7 +153,7 @@ for(var z = 0; z < timeHr.length; z++) {
   document.body.appendChild(dotEl);
 }
 
-var webSalesEl = document.createElement('h1');
+var webSalesEl = document.createElement('h2');
 webSalesEl.textContent = 'Website Sales';
 document.body.appendChild(webSalesEl);
 // Website Sales
