@@ -3,9 +3,8 @@
 var timeHr = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 
 // CONSTRUCTOR FUNCTIONS
-function Camp(kioskNames, kiosk, minHr, maxHr, cupsCust, lbsCust){
+function Camp(kioskNames, minHr, maxHr, cupsCust, lbsCust){
   this.title = kioskNames;
-  this.name = kiosk;
   this.minHr = minHr;
   this.maxHr = maxHr;
   this.cups = cupsCust;
@@ -15,7 +14,9 @@ function Camp(kioskNames, kiosk, minHr, maxHr, cupsCust, lbsCust){
   this.poundToCups = [];
   this.totalPoundsHr = [];
   this.totalCoffee = []
-  this.totalDaily = 0;
+  this.totalCupsDaily = 0;
+  this.totalCustDaily = 0;
+  this.totaLbsDaily = 0;
 }
 
 // Generate Data Prototype
@@ -29,21 +30,53 @@ Camp.prototype.generateNumbers = function() {
     this.totalPoundsHr[j] = +(this.randomNumb[j] * this.pounds).toFixed(2);
     this.totalCoffee[j] = +(this.poundToCups[j] + this.totalPoundsHr[j]).toFixed(2);
     //parseFloat(this.totalCoffee[j]);
-    this.totalDaily =+ this.totalCupsHr[j];
   }
-  //return this.
-  return this.totalDaily;
-  return this.totalCupsHr;
 }
 
-// Camp.prototype.generateDailyTotal = function() {
-//   for (var w = 0; w < timeHr.length; w++) {
-//     this.totalDaily = this.totalCupsHr[w]
-//   }
+// Daily Total Prototype
+Camp.prototype.daily = function() {
+  for (var z = 0; z < timeHr.length; z++) {
+    this.totalCupsDaily += this.totalCupsHr[z];
+    this.totalCustDaily += this.randomNumb[z];
+    this.totaLbsDaily += this.totalCoffee[z];
+  }
+}
 
-// }
-
-
+// Table 1 Function
+function table1() {
+  var sectionEl = document.getElementById('table');
+  var tableEl = document.createElement('table');
+  var row1 = document.createElement('tr');
+  // Creates Time
+  var timeHr1 = ['Location', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Total'];
+  for (var i = 0; i < timeHr1.length; i++) {
+    var headTime = document.createElement('th');
+    headTime.textContent = timeHr1[i];
+    row1.appendChild(headTime);
+  }
+  tableEl.appendChild(row1);
+  // Creates the Rows
+  var places = [pike, cap, sea, slu, seatac];
+  for(var p = 0; p < (places.length); p++) {
+    // Creates the Location Names
+    var row = document.createElement('tr');
+    var headPlace = document.createElement('th');
+    headPlace.textContent = places[p].title;
+    row.appendChild(headPlace);
+    // Fills in the cell of each time
+    for (var j = 0; j < places[p].totalCupsHr.length; j++) {
+      var cell = document.createElement('td');
+      cell.textContent = places[p].totalCupsHr[j];
+      row.appendChild(cell);
+    }
+    // Creates the Total
+    var lastTotal = document.createElement('td');
+    lastTotal.textContent = +places[p].totalCupsDaily.toFixed(2);
+    row.appendChild(lastTotal);
+    tableEl.appendChild(row);
+  }
+  sectionEl.appendChild(tableEl);
+}
 
 //Render Prototype
 Camp.prototype.renderData = function() {
@@ -61,57 +94,30 @@ Camp.prototype.renderData = function() {
 }
 
 // Call Camp Function
-var pike = new Camp('Pike Place Market', 'pikePlace', 14, 55, 1.2, 3.7);
+var pike = new Camp('Pike Place Market', 14, 55, 1.2, 3.7);
 pike.generateNumbers();
-pike.renderData();
-var cap = new Camp('Capital Hill', 'capHill', 32, 48, 3.2, 0.4);
+// pike.renderData();
+pike.daily();
+var cap = new Camp('Capital Hill', 32, 48, 3.2, 0.4);
 cap.generateNumbers();
-cap.renderData();
-var sea = new Camp('Seattle Public Library', 'seaPublic', 49, 75, 2.6, 0.2);
+// cap.renderData();
+cap.daily();
+var sea = new Camp('Seattle Public Library', 49, 75, 2.6, 0.2);
 sea.generateNumbers();
-sea.renderData();
-var slu = new Camp('South Lake Union', 'SLU', 35, 88, 1.3, 3.7);
+// sea.renderData();
+sea.daily();
+var slu = new Camp('South Lake Union', 35, 88, 1.3, 3.7);
 slu.generateNumbers();
-slu.renderData();
-var seatac = new Camp('Sea-Tac Airport', 'seaTac', 68, 124, 1.1, 2.7);
+// slu.renderData();
+slu.daily();
+var seatac = new Camp('Sea-Tac Airport', 68, 124, 1.1, 2.7);
 seatac.generateNumbers();
-seatac.renderData();
-var web = new Camp('Website Sales', 'webSales', 3, 6, 0, 6.7);
+// seatac.renderData();
+seatac.daily();
+var web = new Camp('Website Sales', 3, 6, 0, 6.7);
 web.generateNumbers();
-web.renderData();
+// web.renderData();
+web.daily();
 
-
-// Table
-var timeHr1 = ['Location', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
-
-var sectionEl = document.getElementById('table');
-var tableEl = document.createElement('table');
-
-var row1 = document.createElement('tr');
-for (var i = 0; i < timeHr1.length; i++) {
-  var headTime = document.createElement('th');
-  headTime.textContent = timeHr1[i];
-  row1.appendChild(headTime);
-}
-tableEl.appendChild(row1);
-
-var places = ['pike', 'cap', 'sea', 'slu', 'seatac', 'web'];
-
-for(var p = 0; p < (places.length); p++) {
-  var row = document.createElement('tr');
-  var headPlace = document.createElement('th');
-  headPlace.textContent = places[p].title;
-  row.appendChild(headPlace);
-
-  for (var j = 0; j < places[p].totalCupsHr.length; j++) {
-    var cell = document.createElement('td');
-    cell.textContent = places[p].totalCupsHr;
-    row.appendChild(cell);
-  }
-
-  var lastTotal = document.createElement('td');
-  lastTotal.textContent = places[p].totalDaily;
-  row.appendChild(lastTotal);
-  tableEl.appendChild(row);
-}
-sectionEl.appendChild(tableEl);
+// Call Table Functions
+table1();

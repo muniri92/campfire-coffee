@@ -15,7 +15,7 @@ function Camp(kioskNames, kiosk, minHr, maxHr, cupsCust, lbsCust){
   this.poundToCups = [];
   this.totalPoundsHr = [];
   this.totalCoffee = []
-  this.totalDaily = [];
+  this.totalDaily = 0;
 }
 
 // Generate Data Prototype
@@ -29,12 +29,21 @@ Camp.prototype.generateNumbers = function() {
     this.totalPoundsHr[j] = (this.randomNumb[j] * this.pounds).toFixed(2);
     this.totalCoffee[j] = (this.poundToCups[j] + this.totalPoundsHr[j]);
     parseFloat(this.totalCoffee[j]);
-    this.totalDaily[j] = (this.totalCupsHr[j] * (timeHr.length));
+    this.totalDaily =+ this.totalCupsHr[j];
   }
-  return this.totalCoffee;
+  //return this.
   return this.totalDaily;
   return this.totalCupsHr;
 }
+
+// Camp.prototype.generateDailyTotal = function() {
+//   for (var w = 0; w < timeHr.length; w++) {
+//     this.totalDaily = this.totalCupsHr[w]
+//   }
+
+// }
+
+
 
 //Render Prototype
 Camp.prototype.renderData = function() {
@@ -72,32 +81,38 @@ web.generateNumbers();
 web.renderData();
 
 
-// Table  
+
+// Table
 var timeHr1 = ['Location', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
+
 var sectionEl = document.getElementById('table');
 var tableEl = document.createElement('table');
-tableEl.className = 'table';
-var trEl = document.createElement('tr');
+
+var row1 = document.createElement('tr');
 for (var i = 0; i < timeHr1.length; i++) {
-  var thEl = document.createElement('th');
-  thEl.textContent = timeHr1[i];
-  trEl.appendChild(thEl);
+  var headTime = document.createElement('th');
+  headTime.textContent = timeHr1[i];
+  row1.appendChild(headTime);
 }
-tableEl.appendChild(trEl);
-sectionEl.appendChild(tableEl);
-for(p = 0; p < (timeHr1.length); p++) {
-  var places = ['pike', 'cap', 'sea', 'slu', 'seatac', 'web'];
-  var trEl2 = document.createElement('tr');
-  trEl2.textContent = (places[p]).titles;
-  trEl.appendChild(trEl2);
-  for (var j = 0; j < timeHr1.length; j++) {
-    var trEl4 = document.createElement('tr');
-    trEl4.textContent = places[p].totalCupsHr;
-    trEl.appendChild(trEl4);
+tableEl.appendChild(row1);
+
+var places = ['pike', 'cap', 'sea', 'slu', 'seatac', 'web'];
+
+for(var p = 0; p < (places.length); p++) {
+  var row = document.createElement('tr');
+  var headPlace = document.createElement('th');
+  headPlace.textContent = places[p].title;
+  row.appendChild(headPlace);
+
+  for (var j = 0; j < places[p].totalCupsHr.length; j++) {
+    var cell = document.createElement('td');
+    cell.textContent = places[p].totalCupsHr;
+    row.appendChild(cell);
   }
-  var trEl3 = document.createElement('tr');
-  trEl3.textContent = places[p].totalDaily;
-  trEl.appendChild(trEl3);
+
+  var lastTotal = document.createElement('td');
+  lastTotal.textContent = places[p].totalDaily;
+  row.appendChild(lastTotal);
+  tableEl.appendChild(row);
 }
-tableEl.appendChild(trEl);
 sectionEl.appendChild(tableEl);
