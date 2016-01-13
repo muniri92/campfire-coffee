@@ -1,0 +1,39 @@
+.campfire {
+  /*width: 100%;*/
+  width: 70%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*img.images {
+}*/
+
+.data {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+body {
+  background-color: black;
+}
+
+li {
+  color: white;
+}
+
+h2 {
+  color: white;
+  font-family: serif;
+  text-decoration: underline;
+}
+
+p {
+  color: white;
+}
+
+a {
+  color: white;
+}
