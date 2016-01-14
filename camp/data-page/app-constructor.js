@@ -44,14 +44,17 @@ Camp.prototype.daily = function() {
 
 // Table 1 Function
 function table1() {
-  var sectionEl = document.getElementById('table');
+  var sectionEl = document.getElementById('table1');
   var tableEl = document.createElement('table');
+  tableEl.className = 'tab1';
   var row1 = document.createElement('tr');
+  row1.className = 'tableRow1';
   // Creates Time
-  var timeHr1 = ['Location', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Total'];
+  var timeHr1 = ['Location', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Total Cups Sold (Hourly)'];
   for (var i = 0; i < timeHr1.length; i++) {
     var headTime = document.createElement('th');
     headTime.textContent = timeHr1[i];
+    headTime.className = 'th1'
     row1.appendChild(headTime);
   }
   tableEl.appendChild(row1);
@@ -78,7 +81,46 @@ function table1() {
   sectionEl.appendChild(tableEl);
 }
 
-//Render Prototype
+// Table 2 Function
+function table2() {
+  var sectionEl2 = document.getElementById('table2');
+  var tableEl2 = document.createElement('table');
+  tableEl2.className = 'tab2';
+  var row2 = document.createElement('tr');
+
+  // Creates Top Row
+  var top = ['Location', 'Est. Total Customers', 'Total Beans Daily (Lbs)'];
+  for (var i = 0; i < top.length; i++) {
+    var totals = document.createElement('th');
+    totals.textContent = top[i];
+    totals.className = 'th2';
+    row2.appendChild(totals);
+  }
+  tableEl2.appendChild(row2);
+
+  // Creates the Rows
+  var places = [pike, cap, sea, slu, seatac, web];
+  for(var p = 0; p < (places.length); p++) {
+    // Creates the Location Names
+    var row = document.createElement('tr');
+
+    var headPlace = document.createElement('th');
+    headPlace.textContent = places[p].title;
+    row.appendChild(headPlace);
+
+    var cell1 = document.createElement('tb');
+    cell1.textContent = +places[p].totalCustDaily.toFixed(0);
+    row.appendChild(cell1);
+
+    var cell2 = document.createElement('td');
+    cell2.textContent = +places[p].totaLbsDaily.toFixed(0);
+    row.appendChild(cell2);
+    tableEl2.appendChild(row);
+
+  }
+  sectionEl2.appendChild(tableEl2);
+}
+
 Camp.prototype.renderData = function() {
   var kioskEl = document.createElement('h2');
   kioskEl.textContent = this.title;
@@ -92,6 +134,7 @@ Camp.prototype.renderData = function() {
     ulEl.appendChild(dotEl);
   }
 }
+//Render Prototype
 
 // Call Camp Function
 var pike = new Camp('Pike Place Market', 14, 55, 1.2, 3.7);
@@ -121,3 +164,4 @@ web.daily();
 
 // Call Table Functions
 table1();
+table2();

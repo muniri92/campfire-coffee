@@ -1,13 +1,144 @@
-.campfire {
-  /*width: 100%;*/
-  width: 70%;
+/*CSS FOR HOME PAGE*/
+body{
+  background-color: #a3a375;
+}
+
+li {
+  color: white;
+  border-right:1px solid #bbb;
+}
+
+.home {
+  background-color: #4CAF50;
+}
+
+h2 {
+  font-family: serif;
+}
+
+.title {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 33px;
+}
+
+.quote {
+  text-align: center;
+  font-family: cursive;
+  color red;
+}
+
+.navline {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8B4513;
+}
+
+.login {
+  float:right;
+  list-style-type:none;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+li a:hover {
+    background-color: #006400;
+}
+
+/*IMAGES*/
+.image {
+  align: center;
+  width: 66%;
   height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/*img.images {
-}*/
+
+.timeTable {
+  margin: auto;
+  padding: 15px;
+  border: 1px solid black;
+  color: 	#003300;
+}
+
+.middle1 {
+  width: 350px;
+  padding: 15px;
+  margin-top: 20px;
+  width: 30%;
+  display: inline;
+  float: left;
+  align-items: center;
+  min-height: 10em;
+  display: table-cell;
+  vertical-align: middle;
+  overflow: auto;
+}
+
+.middle2 {
+  width: 350px;
+  height: 204px;
+  padding: 15px;
+  width: 30%;
+  display: inline;
+  align-items: center;
+  min-height: 10em;
+  display: table-cell;
+  vertical-align: middle;
+  overflow: auto;
+}
+
+.about {
+  text-align: center;
+}
+
+.paragraph{
+  text-align: left;
+  margin-right: 30px;
+}
+
+.container {
+  width: auto;
+  height: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.locTitle {
+  color: 	#2F4F4F;
+  margin-top: 35px;
+  margin-right: 34%;
+  display: inline-grid;
+  font-size: 30px;
+  font-family: fantasy;
+  text-decoration: underline;
+  /*text-align: center;*/
+}
+
+.locations {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 10px;
+}
 
 .data {
   display: inline;
@@ -15,25 +146,30 @@
   margin-right: auto;
 }
 
-
-body {
-  background-color: black;
+.gallery {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 33px;
+  color: 	#A52A2A;
 }
 
-li {
-  color: white;
+.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
 }
 
-h2 {
-  color: white;
-  font-family: serif;
-  text-decoration: underline;
+.img:hover {
+    border: 1px solid #777;
 }
 
-p {
-  color: white;
+.img img {
+    width: 100%;
+    height: auto;
 }
 
-a {
-  color: white;
+.desc {
+    padding: 15px;
+    text-align: center;
 }
