@@ -1,0 +1,50 @@
+/*CSS FOR DATA TABLES*/
+
+.tab1 {
+  border: 2px solid black;
+  margin: 5%;
+  padding: 5px;
+  text-align: center;
+}
+
+.tab2 {
+  margin: 5%;
+  border: 2px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+.tableRow {
+  border: 2px solid black;
+}
+
+.tableTitles {
+  border: 2px solid black;
+}
+
+.th1 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 90%;
+  border-bottom: 2px solid #111111;
+  border-top: 1px solid #999;
+  text-align: left;
+}
+ .th2 {
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+   font-size: 90%;
+   border-bottom: 2px solid #111111;
+   border-top: 1px solid #999;
+   text-align: left;
+ }
+
+/*CSS FOR DATA-PAGE*/
+.camper {
+  align: center;
+  width: 70%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
