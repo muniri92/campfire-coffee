@@ -9,36 +9,36 @@
     <img class='camper'  src='http://www.communitycoffee.com/images/default-source/blog/campfirecoffee_1200x448.jpg?sfvrsn=0' alt='Campfire Coffee'/>
     <section id='table1'></section>
     <section id='table2'></section>
-    <script type='text/javascript' src='app-constructor.js'></script>
 
 
-    <form id="chat-form" action="index.html" method="post">
+    <form id="newRow">
       <fieldset>
         <legend>Coffee Shop Information</legend>
         <li>
-          <label for="locName">Location: </label>
-          <input type="text" name="local">
+          <label for="locNames">Location: </label>
+          <input type="text" name="loc">
         </li>
         <li>
-          <label for="locName">Max Customers: </label>
-          <input type="text" name="local">
+          <label for="minimums">Min Customers: </label>
+          <input type="text" name="min">
         </li>
         <li>
-          <label for="locName">Min Customers: </label>
-          <input type="text" name="local">
+          <label for="maximums">Max Customers: </label>
+          <input type="text" name="max">
         </li>
         <li>
-          <label for="locName">Average Cups: </label>
-          <input type="text" name="local">
+          <label for="avgCup">Average Cups Sold: </label>
+          <input type="text" name="cup">
         </li>
         <li>
-          <label for="locName">Average Lbs Sold: </label>
-          <input type="text" name="local">
+          <label for="avgLb">Average Lbs Sold: </label>
+          <input type="text" name="lbs">
         </li>
-        <button id='button' type="submit" name="button">Generate!</button>
+        <button id='table-button' type="submit" name="button">Generate!</button>
       </fieldset>
     </form>
-        <button id="clear-newData" type="button" nam="button">Clear all generated data</button>
-
+    <button id="clear-table">Clear all generated data</button>
+    <ul id='inputData'></ul>
+    <script type='text/javascript' src='revamp.js'></script>
   </body>
 </html>
