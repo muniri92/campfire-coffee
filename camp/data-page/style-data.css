@@ -2,33 +2,37 @@
 
 .tab1 {
   border: 2px solid black;
-  margin: 5%;
+  margin: auto;
+  margin: 2%, 2%, 2%, 2%;
   padding: 5px;
   text-align: center;
+
 }
 
 .tab2 {
-  margin: 5%;
+  margin: auto;
   border: 2px solid black;
   padding: 5px;
   text-align: center;
 }
 
-.tableRow {
+.tableRow1 {
   border: 2px solid black;
 }
 
 .tableTitles {
   border: 2px solid black;
 }
-
+.total {
+  font-weight: bolder;;
+}
 .th1 {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 90%;
   border-bottom: 2px solid #111111;
   border-top: 1px solid #999;
-  text-align: left;
+  text-align: center;
 }
  .th2 {
    text-transform: uppercase;
@@ -41,10 +45,11 @@
 
 /*CSS FOR DATA-PAGE*/
 .camper {
-  align: center;
+  align-content: center;
   width: 70%;
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 1%;
+  padding: auto;
+
 }
