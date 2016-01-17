@@ -1,6 +1,7 @@
 'use strict';
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 var places = [];
+
 // OBJECT CONSTRUCTOR
 function Camp(kiosk, minCust, maxCust, avgCupPerCust, avgLbsPerCust) {
   this.kiosk = kiosk;
@@ -37,6 +38,7 @@ Camp.prototype.generateDaily = function () {
     this.lbsDaily += Math.ceil(parseInt(this.lbsHourly[m]) + parseInt(this.cupsToPounds[m]));
   }
 };
+
 // CREATE A TABLE
 var section = document.getElementById('table1');
 var table = document.createElement('table')
@@ -79,6 +81,7 @@ function table1() {
   }
   section.appendChild(table);
 };
+
 // CREATE A NEW ROW
 function renderNewRow(newForm) {
   var row = document.createElement('tr');
@@ -99,6 +102,7 @@ function renderNewRow(newForm) {
   row.appendChild(lastTotal);
   table.appendChild(row);
 };
+
 // EVENT HANDLER
 var inputData = document.getElementById('inputData');
 var newRow = document.getElementById('newRow')
@@ -115,10 +119,12 @@ function handleForm(event) {
   var newForm = new Camp(newLoc, newMin, newMax, newCup, newLbs);
   newForm.generateNumbers();
   newForm.generateDaily();
-  //console.log('New data was present with location name: ' + event.target.loc.value + ', minimum customers: ' + event.target.min.value + ', maximum customers: ' + event.target.max.value + ', average cups (per hr): ' + event.target.cup.value + ', and average lbs (per hr): ' + event.target.lbs.value + ' at ' + Date());
+  console.log('New data was present with location name: ' + event.target.loc.value + ', minimum customers: ' + event.target.min.value + ', maximum customers: ' + event.target.max.value + ', average cups (per hr): ' + event.target.cup.value + ', and average lbs (per hr): ' + event.target.lbs.value + ' at ' + Date());
+
   // PUSH NEW DATA TO PLACES ARRAY
   places.push(newForm);
   renderNewRow(newForm);
+
   // ERASES VALUES IN 'newForm'
   event.target.loc.value = null;
   event.target.min.value = null;
@@ -126,6 +132,7 @@ function handleForm(event) {
   event.target.cup.value = null;
   event.target.lbs.value = null;
 }
+
 // RUN EVENT LISTENER
 newRow.addEventListener('submit', handleForm);
 // CALL FUNCTION
